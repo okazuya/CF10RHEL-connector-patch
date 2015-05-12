@@ -1881,6 +1881,7 @@ static int ajp_process_callback(jk_msg_buf_t *msg,
 		 jk_b_reset(msg);
 		 jk_b_reset(pmsg);
 		 len = strlen(path);
+/*
 		 size = len+AJP_HEADER_LEN+AJP_HEADER_SZ_LEN;
 		 if (jk_b_set_buffer_size(pmsg,size)) {
           jk_log(l, JK_LOG_ERROR,
@@ -1888,6 +1889,8 @@ static int ajp_process_callback(jk_msg_buf_t *msg,
           JK_TRACE_EXIT(l);
           return JK_UNSET;
          }
+*/
+pmsg->len = 0;
 		 if(jk_b_append_bytes(pmsg,temp,AJP_HEADER_LEN)){
           jk_log(l, JK_LOG_ERROR,
                "Failed allocating AJP_HEADER_LEN bytes AJP13_GETREALPATH");
